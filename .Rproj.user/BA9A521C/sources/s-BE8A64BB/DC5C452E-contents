@@ -1,0 +1,147 @@
+---
+output: html_document
+---
+
+```{r}
+# select: select columns of a dataframe
+library(tidyverse)
+library(untidydata)
+
+
+glimpse(mtcars)
+
+mtcars %>% 
+  select(mpg)
+
+select(mtcars, mpg, drat, hp)
+select(mtcars, am, gear, carb)
+# rename column
+select(mtcars, hello_world = mpg)
+# select consecutive columns
+select (mtcars, mpg:hp)
+
+select (mtcars, starts_with("d"))
+
+
+
+# filter: rows of a data frame
+# filter rows in which mpg is less than 20 
+# and greater than 14
+filter(mtcars, mpg < 20 & mpg > 14)
+# filter rows in which cyl is equal to 6
+filter(mtcars, cyl == 6)
+# filter rows in which mpg is no less than 20 
+#or disp is no greater than 200
+filter(mtcars, mpg >= 20 | disp <= 200)
+
+
+
+#arrange : rows of a data frame
+arrange (mtcars, mpg)
+# descending
+arrange (mtcars, desc(mpg))
+
+
+
+# mutate: mutate variables of a data frame
+mtcars %>% 
+  select (.,mpg) %>% 
+  mutate (., mpg_x2 = mpg * 2)
+
+mtcars %>% 
+  select(., mpg) %>% 
+  mutate(., mpg_c = mpg - mean(mpg))
+
+mtcars %>% 
+  select(., mpg) %>% 
+  mutate(., value = if_else(mpg > 18, "good", "bad"))
+
+
+
+# summarize variables of data frame
+# my_data %>% 
+# group_by(., group) %>% 
+# summarize(., mean_weight = mean(weight))
+mtcars %>% 
+  summarize(., mean_mpg = mean(mpg)) 
+
+mtcars %>% 
+  group_by(., cyl) %>% 
+  summarize(., mean_mpg = mean(mpg)) 
+
+mtcars %>% 
+  group_by(., cyl) %>% 
+  summarize(., mean_mpg = mean(mpg), sd_mpg = sd(mpg), 
+            min_mpg = min(mpg), max_mpg = max(mpg)) %>% 
+  # make a table
+  knitr :: kable()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# tidyr
+
+# How many columns are there? 4
+# How may variables are there? What are they? 2 in spec col
+# How many observation are there per row? 2(test 1 and test 2)
+
+pre_post
+
+# seperate()
+pre_post %>% 
+  separate(., col = spec,
+           into = c("group", "cond"),
+           sep = "_")
+
+
+# unite()
+pre_post %>% 
+  unite(., col = "silly", 
+        c("id", "spec"),
+        sep = "_")
+
+?pivot_longer
+# one observation per row
+# pivot_longer() change dataframes from wide to long
+pre_post %>% 
+  ggplot(., aes(x = test1, y = test2)) +
+  geom_point() +
+  geom_smooth(method = lm)
+
+pre_post %>% 
+  pivot_longer(., 
+               cols = c("test1", "test2"),
+               names_to = "t", 
+               values_to = "score") %>% 
+  ggplot(., aes(x = t, y = score)) +
+    geom_boxplot()
+
+?pivot_wider
+# pivot_longer() change dataframes from long to wide
+language_diversity %>% glimpse
+View(language_diversity)
+
+language_diversity %>% 
+  pivot_wider(
+                names_from = Measurement,
+              values_from = Value) %>% 
+  ggplot(., aes, x = area, )
+
+# read_csv()
+```
+
