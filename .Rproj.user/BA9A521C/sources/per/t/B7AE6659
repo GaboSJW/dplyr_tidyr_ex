@@ -1,27 +1,27 @@
 {
-    "id": "DC5C452E",
+    "id": "B7AE6659",
     "path": "~/Desktop/dplyr_tidyr_ex/index.Rmd",
     "project_path": "index.Rmd",
-    "type": "r_source",
-    "hash": "38492452",
+    "type": "r_markdown",
+    "hash": "2200269086",
     "contents": "",
     "dirty": false,
-    "created": 1613056631458.0,
+    "created": 1614187430157.0,
     "source_on_save": false,
     "relative_order": 1,
     "properties": {
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "143,3",
-        "scrollLine": "122"
+        "cursorPosition": "85,0",
+        "scrollLine": "64"
     },
     "folds": "",
-    "lastKnownWriteTime": 1613663111,
+    "lastKnownWriteTime": 1614200409,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1613663111535,
+    "last_content_update": 1614200409352,
     "read_only": false,
     "read_only_alternatives": []
 }

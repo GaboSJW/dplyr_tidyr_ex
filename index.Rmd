@@ -28,7 +28,7 @@ select (mtcars, starts_with("d"))
 # filter rows in which mpg is less than 20 
 # and greater than 14
 filter(mtcars, mpg < 20 & mpg > 14)
-# filter rows in which cyl is equal to 6
+# filter rows in which cyl is equal to 6 
 filter(mtcars, cyl == 6)
 # filter rows in which mpg is no less than 20 
 #or disp is no greater than 200
